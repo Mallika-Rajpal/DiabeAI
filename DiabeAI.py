@@ -3,7 +3,7 @@ import numpy as np
 import joblib
 
 # Load model and scaler
-model = joblib.load('ensemble_model.pkl')
+model = joblib.load('model/ensemble_model.pkl')
 scaler = joblib.load('scaler.pkl')
 
 # Banner
