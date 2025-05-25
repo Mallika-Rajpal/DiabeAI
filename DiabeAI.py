@@ -6,9 +6,6 @@ import joblib
 model = joblib.load('model/ensemble_model.pkl')
 scaler = joblib.load('scaler.pkl')
 
-# Banner
-st.image("diabeai_banner.png", use_column_width=True)
-
 # Theme toggle
 theme = st.sidebar.radio("Choose Theme", ["🌙 Dark Mode", "☀️ Light Mode"])
 if theme == "🌙 Dark Mode":
@@ -31,10 +28,10 @@ else:
     )
 
 # App title
-st.title(" DiabeAI - Smart Diabetes Prediction")
+st.title("DiabeAI - Smart Diabetes Prediction")
 
 # Sidebar info
-st.sidebar.title(" About DiabeAI")
+st.sidebar.title("About DiabeAI")
 st.sidebar.info(
     "DiabeAI uses ensemble machine learning to predict diabetes risk. "
     "Not a medical diagnosis — consult a professional!"
@@ -51,7 +48,7 @@ bmi = st.number_input("BMI", 0.0, 70.0, 22.0)
 dpf = st.number_input("Diabetes Pedigree Function", 0.0, 2.5, 0.5)
 age = st.number_input("Age", 1, 120, 25)
 
-if st.button(" Predict Diabetes Risk"):
+if st.button("Predict Diabetes Risk"):
     input_data = np.array([[pregnancies, glucose, bp, skin_thickness, insulin, bmi, dpf, age]])
     scaled_data = scaler.transform(input_data)
 
@@ -59,6 +56,6 @@ if st.button(" Predict Diabetes Risk"):
     probability = model.predict_proba(scaled_data)[0][1]
 
     if prediction[0] == 1:
-        st.error(f" High risk of diabetes detected! ({probability:.2%} probability)")
+        st.error(f"High risk of diabetes detected! ({probability:.2%} probability)")
     else:
-        st.success(f" Low risk of diabetes. ({probability:.2%} probability)")
+        st.success(f"Low risk of diabetes. ({probability:.2%} probability)")
