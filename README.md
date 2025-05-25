@@ -25,4 +25,7 @@ Make sure you have Python 3.7+ installed. The app depends on:
 - scikit-learn
 - joblib
 
+Check it out:
+https://diabe-ai.streamlit.app/
+
 DiabeAI — Predict. Prevent. Prevail.
